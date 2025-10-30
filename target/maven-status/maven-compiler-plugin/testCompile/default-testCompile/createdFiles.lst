@@ -1,0 +1,4 @@
+pages\LoginPage.class
+pages\HomePage.class
+Utils\Test.class
+Runner\TestNGRunner.class

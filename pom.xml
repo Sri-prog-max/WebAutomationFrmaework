@@ -1,0 +1,70 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0">
+  <modelVersion>4.0.0</modelVersion>
+  <groupId>com.automation</groupId>
+  <artifactId>SeleniumCucumberTestNGFramework</artifactId>
+  <version>1.0</version>
+  <name>Selenium Cucumber TestNG Framework</name>
+ 
+  <dependencies>
+    <!-- Selenium -->
+    <dependency>
+      <groupId>org.seleniumhq.selenium</groupId>
+      <artifactId>selenium-java</artifactId>
+      <version>4.25.0</version>
+    </dependency>
+ 
+    <!-- WebDriverManager -->
+    <dependency>
+      <groupId>io.github.bonigarcia</groupId>
+      <artifactId>webdrivermanager</artifactId>
+      <version>5.9.2</version>
+    </dependency>
+ 
+    <!-- Cucumber -->
+    <dependency>
+      <groupId>io.cucumber</groupId>
+      <artifactId>cucumber-java</artifactId>
+      <version>7.18.0</version>
+    </dependency>
+ 
+    <dependency>
+      <groupId>io.cucumber</groupId>
+      <artifactId>cucumber-testng</artifactId>
+      <version>7.18.0</version>
+    </dependency>
+ 
+    <!-- TestNG -->
+    <dependency>
+      <groupId>org.testng</groupId>
+      <artifactId>testng</artifactId>
+      <version>7.10.2</version>
+      <scope>test</scope>
+    </dependency>
+ 
+    <!-- Cucumber Reporting -->
+    <dependency>
+      <groupId>net.masterthought</groupId>
+      <artifactId>cucumber-reporting</artifactId>
+      <version>5.7.4</version>
+    </dependency>
+  </dependencies>
+ 
+  <build>
+    <plugins>
+      <!-- Surefire plugin for parallel runs -->
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-surefire-plugin</artifactId>
+        <version>3.2.5</version>
+        <configuration>
+          <parallel>tests</parallel>
+          <threadCount>3</threadCount>
+          <includes>
+            <include>**/TestNGRunner*.java</include>
+          </includes>
+        </configuration>
+      </plugin>
+    </plugins>
+  </build>
+</project>
+ 
