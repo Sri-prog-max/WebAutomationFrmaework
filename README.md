@@ -1,1 +1,1 @@
-# WebAutomationFrmaework
+# WebAutomationFramework
