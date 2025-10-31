@@ -1,4 +1,7 @@
+base\TestBase.class
 pages\LoginPage.class
 pages\HomePage.class
-Utils\Test.class
-Runner\TestNGRunner.class
+runner\TestNGRunner.class
+stepDefinitions\StepDefinitions.class
+pages\MenuPage.class
+factory\DriverFactory.class

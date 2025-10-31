@@ -29,7 +29,7 @@ public class MenuPage {
 		driver.findElement(Allitemslink).click();
 	}
 	public void logout() {
-		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
+		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(30));
 		WebElement logoutLink = wait.until(ExpectedConditions.elementToBeClickable(logout));
 		logoutLink.click();
 //		driver.findElement(logoutLink).click();

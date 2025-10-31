@@ -3,7 +3,11 @@
   <groupId>com.automation</groupId>
   <artifactId>SeleniumCucumberTestNGFramework</artifactId>
   <version>1.0</version>
-  <name>Selenium Cucumber TestNG Framework</name>
+ 
+  <properties>
+    <maven.compiler.source>17</maven.compiler.source>
+    <maven.compiler.target>17</maven.compiler.target>
+  </properties>
  
   <dependencies>
     <!-- Selenium -->
@@ -41,7 +45,7 @@
       <scope>test</scope>
     </dependency>
  
-    <!-- Cucumber Reporting -->
+    <!-- Masterthought Cucumber reporting -->
     <dependency>
       <groupId>net.masterthought</groupId>
       <artifactId>cucumber-reporting</artifactId>
@@ -51,20 +55,43 @@
  
   <build>
     <plugins>
-      <!-- Surefire plugin for parallel runs -->
+      <!-- surefire for running tests (if needed) -->
       <plugin>
         <groupId>org.apache.maven.plugins</groupId>
         <artifactId>maven-surefire-plugin</artifactId>
         <version>3.2.5</version>
         <configuration>
-          <parallel>tests</parallel>
-          <threadCount>3</threadCount>
-          <includes>
-            <include>**/TestNGRunner*.java</include>
-          </includes>
+          <suiteXmlFiles>
+            <suiteXmlFile>testng.xml</suiteXmlFile>
+          </suiteXmlFiles>
         </configuration>
       </plugin>
-    </plugins>
-  </build>
+    
+
+   <plugin>
+    <groupId>net.masterthought</groupId>
+    <artifactId>maven-cucumber-reporting</artifactId>
+    <version>5.7.4</version>
+    <executions>
+        <execution>
+            <id>generate-cucumber-html-report</id>
+            <phase>verify</phase>
+            <goals>
+                <goal>generate</goal>
+            </goals>
+            <configuration>
+                <projectName>Cucumber BDD Automation</projectName>
+                <outputDirectory>${project.build.directory}/cucumber-html-reports</outputDirectory>
+                <jsonFiles>
+                    <param>${project.build.directory}/cucumber-reports/cucumber.json</param>
+                </jsonFiles>
+                <buildNumber>1</buildNumber>
+                <enableFlashCharts>false</enableFlashCharts>
+            </configuration>
+        </execution>
+    </executions>
+</plugin>
+</plugins>
+</build>
+  
 </project>
- 

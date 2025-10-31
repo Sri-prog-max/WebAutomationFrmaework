@@ -1,7 +1,8 @@
    
+  
   Feature: Validate login and 3-page navigation
  
-  Scenario: Successful login and navigate through Dashboard, Profile and Settings
+  Scenario: Successful login and navigate through Dashboard, Cart and Menu
   
     Given I open the browser
     And I navigate to "https://www.saucedemo.com/"
